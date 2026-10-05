@@ -1,0 +1,180 @@
+[
+    {
+        "iconUrl": "https://anm.cx/favicon.ico",
+        "fileHash": "sha256-9049419b8fb77deb01d7fff888bac67a6702ed2db56614d03cd56b74cfcfbc08",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/BlackDamage-Dev/Kitsugi-Plugins",
+        "fileSize": 28223,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "keyiflerolsun",
+            "inatchii",
+            "JustRelaxable"
+        ],
+        "tvTypes": [
+            "Anime"
+        ],
+        "version": 24,
+        "internalName": "AnimeciX",
+        "description": "AnimeciX, animeleri keşfedebileceğiniz ve animeler hakkında her şeyi öğrenebileceğiniz bir paylaşım platformudur.",
+        "url": "https://raw.githubusercontent.com/BlackDamage-Dev/Kitsugi-Plugins/builds/AnimeciX.cs3",
+        "name": "AnimeciX"
+    },
+    {
+        "fileHash": "sha256-8ae8ce4c9e53f6c95530d0ffb8070c8469f4c1d8ea93247f2ef28d6dc7e351fb",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/BlackDamage-Dev/Kitsugi-Plugins",
+        "fileSize": 80371,
+        "status": 1,
+        "authors": [
+            "kerimmkirac",
+            "ByAyzen",
+            "keyiflerolsun"
+        ],
+        "version": 25,
+        "internalName": "Anizium",
+        "url": "https://raw.githubusercontent.com/BlackDamage-Dev/Kitsugi-Plugins/builds/Anizium.cs3",
+        "name": "Anizium",
+        "description": "Anizium ile dünyada ilk ve tek 4K Türkçe dublaj platformunda anime keyfini yaşa. En yeni animeleri İngilizce altyazı ve dublaj seçenekleriyle 1080p ve 4K kalitesinde HD izle.",
+        "iconUrl": "https://anizium.co/assets/images/logo.png",
+        "tvTypes": [
+            "AnimeMovie",
+            "Anime"
+        ],
+        "language": "tr"
+    },
+    {
+        "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://filmmakinesi.tv&size=128",
+        "fileHash": "sha256-dd1320e3b9a78d1e46463e48f0037383ea0887b6efb6889d0ac8ecaca05584d9",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/BlackDamage-Dev/Kitsugi-Plugins",
+        "fileSize": 138236,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "kraptor",
+            "usdogu",
+            "nikyokki",
+            "keyiflerolsun"
+        ],
+        "tvTypes": [
+            "Movie",
+            "TvSeries"
+        ],
+        "version": 73,
+        "internalName": "FilmMakinesi",
+        "description": "Film Makinesi, en yeni ve en güncel filmleri sitemizde full HD kalite farkı ile izleyebilirsiniz. HD film izle denildiğinde akla gelen en kaliteli film izleme sitesi.",
+        "url": "https://raw.githubusercontent.com/BlackDamage-Dev/Kitsugi-Plugins/builds/FilmMakinesi.cs3",
+        "name": "FilmMakinesi"
+    },
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?sz=128&domain=http://hdfilmcehennemi.nl",
+        "fileHash": "sha256-ad47752fd42acf30b56c68d1c878b563ff7d4fe17235e842ce4f63b98bedffc8",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/BlackDamage-Dev/Kitsugi-Plugins",
+        "fileSize": 145904,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "kraptor",
+            "hexated",
+            "keyiflerolsun"
+        ],
+        "tvTypes": [
+            "Movie",
+            "TvSeries"
+        ],
+        "version": 64,
+        "internalName": "HDFilmCehennemi",
+        "description": "HDFilmCehennemi - Türkiye'nin en hızlı hd film izleme sitesi. Tek ve gerçek HDFilmCehennemi sitesi.",
+        "url": "https://raw.githubusercontent.com/BlackDamage-Dev/Kitsugi-Plugins/builds/HDFilmCehennemi.cs3",
+        "name": "HDFilmCehennemi"
+    },
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?domain=anizm.net&sz=128",
+        "fileHash": "sha256-3f658a334e3b2aa6a8b50b0455c27795015b95a4a69cba2e5bf38c00ff4eaa29",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/BlackDamage-Dev/Kitsugi-Plugins",
+        "fileSize": 16554,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "hexated",
+            "byayzen"
+        ],
+        "tvTypes": [
+            "Anime"
+        ],
+        "version": 1,
+        "internalName": "Anizm",
+        "description": "Anizm (anizm.net / puffytr.com) anime arşivi: isim eşleştirmeli arama, kategoriler, detay ve bölümler; tüm fansub/video kaynaklarıyla oynatıcı çözücü.",
+        "url": "https://raw.githubusercontent.com/BlackDamage-Dev/Kitsugi-Plugins/builds/Anizm.cs3",
+        "name": "Anizm"
+    },
+    {
+        "iconUrl": "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://www.dizibox.de&size=16",
+        "fileHash": "sha256-0d568891f9b4cc480dfa257e28ef096d3c6620d920ed1f7fc1c6f4d5da56805e",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/BlackDamage-Dev/Kitsugi-Plugins",
+        "fileSize": 21202,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "kraptor",
+            "kerimmkirac",
+            "ByAyzen",
+            "keyiflerolsun"
+        ],
+        "tvTypes": [
+            "TvSeries"
+        ],
+        "version": 23,
+        "internalName": "DiziBox",
+        "description": "Yabancı Dizi izle, Tüm yabancı dizilerin yeni ve eski sezonlarını full hd izleyebileceğiniz elit site.",
+        "url": "https://raw.githubusercontent.com/BlackDamage-Dev/Kitsugi-Plugins/builds/prebuilt/DiziBox.cs3",
+        "name": "DiziBox"
+    },
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?domain=hdfilmizle.to&sz=128",
+        "fileHash": "sha256-01aebcbf4d82c0782f95c6b76fdc79fed67f4c8e91900f6c3ab5e0e3cb586a4e",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/BlackDamage-Dev/Kitsugi-Plugins",
+        "fileSize": 28820,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "nikyokki"
+        ],
+        "tvTypes": [
+            "Movie",
+            "TvSeries"
+        ],
+        "version": 8,
+        "internalName": "HDFilmIzle",
+        "description": "Türkçe film ve dizi kataloğu.",
+        "url": "https://raw.githubusercontent.com/BlackDamage-Dev/Kitsugi-Plugins/builds/HDFilmIzle.cs3",
+        "name": "HDFilmİzle"
+    },
+    {
+        "iconUrl": "https://www.google.com/s2/favicons?domain=tranimeizle.io&sz=128",
+        "fileHash": "sha256-60004911f1d3104d68363371eca10ea21db0bc77ff9cea7b18eb38e0fb1d38b0",
+        "apiVersion": 1,
+        "repositoryUrl": "https://github.com/BlackDamage-Dev/Kitsugi-Plugins",
+        "fileSize": 70894,
+        "status": 1,
+        "language": "tr",
+        "authors": [
+            "kraptor",
+            "byayzen"
+        ],
+        "tvTypes": [
+            "Anime"
+        ],
+        "version": 15,
+        "internalName": "TrAnimeIzle",
+        "description": "TrAnimeIzle anime arşivi: isim eşleştirmeli arama, ana sayfa kategorileri, Kitsu ile zenginleştirilmiş detay ve bölümler; tüm fansub/kalite kaynakları ve OpTraco/Hdvid/Hexload oynatıcı çözücüleri.",
+        "url": "https://raw.githubusercontent.com/BlackDamage-Dev/Kitsugi-Plugins/builds/TrAnimeIzle.cs3",
+        "name": "TrAnimeIzle"
+    }
+]
