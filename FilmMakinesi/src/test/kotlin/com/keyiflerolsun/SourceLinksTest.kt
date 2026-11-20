@@ -65,4 +65,15 @@ class SourceLinksTest {
         assertEquals("Close", SourceLinks.labelFor("Close (HDrip Xbet)", "https://closeload.filmmakinesi.to/video/embed/a/"))
         assertEquals("Rapid · Türkçe Dublaj", SourceLinks.labelFor("Türkçe Dublaj Rapid", "https://rapid.filmmakinesi.to/embed-a/"))
     }
+    @Test
+    fun `bagimsiz tireli kaynak ve gec yuklenen iframe okunur`() {
+        val page = "https://filmmakinesi.to/film/ornek/"
+        val doc = Jsoup.parse("""
+            <button data-video-url="/embed-abc/">Rapid</button>
+            <div class="after-player"><iframe data-src="about:blank" data-lazy-src="/video/embed/xyz/"></iframe></div>
+        """.trimIndent(), page)
+        assertEquals(listOf("https://filmmakinesi.to/video/embed/xyz/", "https://filmmakinesi.to/embed-abc/"),
+            SourceLinks.collect(doc, page).map { it.url })
+    }
+
 }

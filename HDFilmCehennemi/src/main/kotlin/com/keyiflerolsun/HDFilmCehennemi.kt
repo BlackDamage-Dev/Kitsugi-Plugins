@@ -562,9 +562,9 @@ class HDFilmCehennemi : MainAPI() {
         callback: (ExtractorLink) -> Unit
     ): Boolean {
         resolveDomain()
-        val pageUrl = migrateUrl(data)
-        val document = app.get(
-            pageUrl,
+        val requestedUrl = migrateUrl(data)
+        val response = app.get(
+            requestedUrl,
             headers = mapOf(
                 "User-Agent" to USER_AGENT,
                 "Accept" to "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -573,7 +573,10 @@ class HDFilmCehennemi : MainAPI() {
             referer = "$mainUrl/",
             interceptor = interceptor,
             timeout = 20L
-        ).document
+        )
+        if (!response.isSuccessful) return false
+        val pageUrl = response.url.ifBlank { requestedUrl }
+        val document = response.document
 
         val buttons = HdfcSources.buttons(document)
         Log.d("HDCH", "kaynak düğmeleri: " + buttons.joinToString(" | ") { "${it.label}=${it.videoId}" })
@@ -588,7 +591,7 @@ class HDFilmCehennemi : MainAPI() {
 
         // API yanıt vermezse: sayfadaki varsayılan oynatıcı + rapidrame_id'den Rapidrame.
         val language = buttons.firstOrNull()?.language
-        for (e in HdfcSources.pageEmbeds(document, pageUrl, mainUrl)) {
+        for (e in HdfcSources.pageEmbeds(document, pageUrl, originOf(pageUrl) ?: mainUrl)) {
             if (embeds.none { it.url == e.url }) {
                 embeds.add(if (language.isNullOrBlank()) e else e.copy(label = "${e.label} · $language"))
             }
@@ -618,7 +621,7 @@ class HDFilmCehennemi : MainAPI() {
     private suspend fun fetchEmbed(button: HdfcSources.Button, pageUrl: String): HdfcSources.Embed? {
         val body = try {
             app.get(
-                "${mainUrl.trimEnd('/')}/video/${button.videoId}/",
+                "${originOf(pageUrl) ?: mainUrl}/video/${button.videoId}/",
                 headers = mapOf(
                     "User-Agent" to USER_AGENT,
                     "X-Requested-With" to "fetch",

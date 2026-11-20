@@ -67,4 +67,15 @@ class HdfcSourcesTest {
         assertTrue(HdfcSources.isPlayerUrl("https://www.hdfilmcehennemi.nl/rplayer/abc/"))
         assertTrue(!HdfcSources.isPlayerUrl("https://www.youtube.com/embed/abc"))
     }
+    @Test
+    fun `api ilk iframe oynatici degilse sonraki kaynagi kullanir`() {
+        val html = """
+            <iframe src="https://www.youtube.com/embed/trailer"></iframe>
+            <iframe data-src="about:blank" data-lazy-src="/rplayer/abc/"></iframe>
+        """.trimIndent()
+        val expected = "$mainUrl/rplayer/abc/"
+        assertEquals(expected, HdfcSources.embedFromApi(html, pageUrl))
+        assertEquals(listOf(expected), HdfcSources.pageEmbeds(Jsoup.parse(html), pageUrl, mainUrl).map { it.url })
+    }
+
 }

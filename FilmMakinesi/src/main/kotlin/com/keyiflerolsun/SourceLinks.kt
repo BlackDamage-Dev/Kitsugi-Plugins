@@ -70,7 +70,7 @@ internal object SourceLinks {
 
     fun collect(document: Document, pageUrl: String): List<Source> {
         val out = LinkedHashMap<String, Source>()
-        for (el in document.select(".video-parts [data-video_url], .video-parts [data-video-url], [data-video_url]")) {
+        for (el in document.select("[data-video_url], [data-video-url]")) {
             val raw = el.attr("data-video_url").ifBlank { el.attr("data-video-url") }
             val url = normalize(raw, pageUrl) ?: continue
             // Fragman düğmesi (trailer-button) kaynak değildir.
@@ -78,8 +78,8 @@ internal object SourceLinks {
             out.putIfAbsent(url, Source(labelFor(el.text(), url), url, kindOf(url)))
         }
         for (frame in document.select(".after-player iframe, #player-section iframe, .player--area iframe")) {
-            val raw = frame.attr("data-src").ifBlank { frame.attr("src") }
-            val url = normalize(raw, pageUrl) ?: continue
+            val url = sequenceOf("data-src", "data-lazy-src", "src")
+                .mapNotNull { normalize(frame.attr(it), pageUrl) }.firstOrNull() ?: continue
             out.putIfAbsent(url, Source(labelFor("", url), url, kindOf(url)))
         }
         // Close önce, sonra Rapid, sonra diğerleri.
