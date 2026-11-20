@@ -97,9 +97,8 @@ internal object HdfcSources {
     /** Sayfaya doğrudan gömülü oynatıcı(lar) + rapidrame_id'den türetilen Rapidrame. */
     fun pageEmbeds(document: Document, pageUrl: String, mainUrl: String): List<Embed> {
         val out = ArrayList<Embed>()
-        for (frame in document.select("iframe[data-src], iframe[src]")) {
-            val url = normalize(frame.attr("data-src").ifBlank { frame.attr("src") }, pageUrl) ?: continue
-            if (!isPlayerUrl(url)) continue
+        for (frame in document.select("iframe[data-src], iframe[data-lazy-src], iframe[src]")) {
+            val url = playerUrl(frame, pageUrl) ?: continue
             if (out.none { it.url == url }) out.add(Embed(nameForUrl(url), url))
         }
         for (e in out.toList()) {
@@ -113,12 +112,14 @@ internal object HdfcSources {
     /** `/video/{id}/` JSON yanıtındaki iframe adresini çıkarır. */
     fun embedFromApi(body: String, baseUrl: String): String? {
         val html = jsonStringField(body, "html") ?: body
-        val frame = Jsoup.parse(html).selectFirst("iframe")
-        val raw = frame?.attr("data-src")?.ifBlank { frame.attr("src") }
-            ?: Regex("""data-src=\\?["']([^"'\\]+)""").find(body)?.groupValues?.get(1)
-        val url = normalize(raw, baseUrl) ?: return null
-        return if (isPlayerUrl(url)) url else null
+        return Jsoup.parse(html).select("iframe").asSequence()
+            .mapNotNull { playerUrl(it, baseUrl) }.firstOrNull()
     }
+
+    private fun playerUrl(frame: org.jsoup.nodes.Element, baseUrl: String): String? =
+        sequenceOf("data-src", "data-lazy-src", "src")
+            .mapNotNull { normalize(frame.attr(it), baseUrl) }
+            .firstOrNull { isPlayerUrl(it) }
 
     /** Küçük JSON metin alanı okuyucu (bağımlılıksız). */
     fun jsonStringField(json: String, field: String): String? {

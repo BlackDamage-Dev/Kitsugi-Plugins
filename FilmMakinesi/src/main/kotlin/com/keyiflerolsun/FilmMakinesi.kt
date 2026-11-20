@@ -406,9 +406,9 @@ private fun Element.toSearchResult(): SearchResponse? {
         callback: (ExtractorLink) -> Unit
     ): Boolean {
         resolveDomain()
-        val pageUrl = migrateUrl(data)
-        val document = app.get(
-            pageUrl,
+        val requestedUrl = migrateUrl(data)
+        val response = app.get(
+            requestedUrl,
             headers = mapOf(
                 "User-Agent" to USER_AGENT,
                 "Referer" to "$mainUrl/",
@@ -417,7 +417,10 @@ private fun Element.toSearchResult(): SearchResponse? {
             ),
             interceptor = FilmMakinesiHttp.interceptor,
             timeout = 20L
-        ).document
+        )
+        if (!response.isSuccessful) return false
+        val pageUrl = response.url.ifBlank { requestedUrl }
+        val document = response.document
 
         val sources = SourceLinks.collect(document, pageUrl)
         Log.d("FLMM", "kaynaklar (${sources.size}): " + sources.joinToString(" | ") { "${it.label} -> ${it.url}" })
